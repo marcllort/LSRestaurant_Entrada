@@ -16,9 +16,18 @@ public class EntradaVista extends JFrame {
 
         JPanel jpCentre = Centre();      //Creem el panell central
 
-        JPanel jpMain = Borders(jpCentre);       //Creem el JPanel principal
+        getContentPane().setLayout(new BorderLayout());
 
-        getContentPane().add(jpMain);
+        //Creem el titol
+        JLabel jlTitol = new JLabel("LS RESTAURANT");
+        jlTitol.setHorizontalTextPosition(SwingConstants.CENTER);
+
+        //Afegim el titol i el panell anterior al JPanel principal
+        getContentPane().add(jlTitol, BorderLayout.NORTH);
+        getContentPane().add(jpCentre, BorderLayout.CENTER);
+
+        jpCentre.setAlignmentX(SwingConstants.CENTER);
+        jlTitol.setAlignmentX(SwingConstants.CENTER);
 
     }
 
@@ -30,34 +39,19 @@ public class EntradaVista extends JFrame {
         //Creem els butons i els alineem
 
         jbDemanar.setText("DEMANAR");
-        jbDemanar.setAlignmentX(SwingConstants.CENTER);
         jbReserva.setText("RESERVAR");
-        jbReserva.setAlignmentX(SwingConstants.CENTER);
 
         //Els afegim
 
         jpCentre.add(jbDemanar);
         jpCentre.add(jbReserva);
 
+        jbDemanar.setAlignmentX(SwingConstants.CENTER);
+        jbReserva.setAlignmentX(SwingConstants.CENTER);
+        jpCentre.setAlignmentX(SwingConstants.CENTER);
+
         return jpCentre;
     }
-
-    private JPanel Borders(JPanel jpCentre){
-        JPanel jpMain = new JPanel();
-
-        jpMain.setLayout(new BorderLayout());
-
-        //Creem el titol
-        JLabel jlTitol = new JLabel("LS Restaurant");
-        jlTitol.setHorizontalTextPosition(SwingConstants.CENTER);
-
-        //Afegim el titol i el panell anterior al JPanel principal
-        jpMain.add(jlTitol, BorderLayout.NORTH);
-        jpMain.add(jpCentre, BorderLayout.CENTER);
-
-        return jpMain;
-    }
-
 
 
 }

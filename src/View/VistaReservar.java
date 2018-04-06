@@ -5,13 +5,13 @@ import java.awt.*;
 
 public class VistaReservar extends JFrame{
 
+    private static final int MAX_COMENSALS = 15;
     private JTextField jtfUsuari = new JTextField();
     private JTextField jtfDia = new JTextField();
     private JTextField jtfMes = new JTextField();
     private JTextField jtfAny = new JTextField();
-    private JComboBox<String> hores = new JComboBox<>();
-    private JTextField jtfComensals = new JTextField();
-
+    private JComboBox<String> jcbHores = new JComboBox<>();
+    private JComboBox<String> jcbComensals = new JComboBox<>();
     public VistaReservar () {
         setSize(600, 400);
         setLocationRelativeTo(null);
@@ -48,7 +48,12 @@ public class VistaReservar extends JFrame{
         jpComensals.setLayout(new GridLayout(1,2));
 
         jpComensals.add(new JLabel("Comensals: "));
-        jpComensals.add(jtfComensals);
+
+        for(Integer i = 1; i <= MAX_COMENSALS; i++) {
+            jcbComensals.addItem(i.toString());
+        }
+
+        jpComensals.add(jcbComensals);
 
         return jpComensals;
     }
@@ -61,12 +66,12 @@ public class VistaReservar extends JFrame{
         jpHora.add(new JLabel("Hora: "));
 
         //ComboBox Horas
-        hores.addItem("13:00");
-        hores.addItem("14:30");
-        hores.addItem("19:30");
-        hores.addItem("21:30");
+        jcbHores.addItem("13:00");
+        jcbHores.addItem("14:30");
+        jcbHores.addItem("19:30");
+        jcbHores.addItem("21:30");
 
-        jpHora.add(hores);
+        jpHora.add(jcbHores);
 
         return jpHora;
     }
