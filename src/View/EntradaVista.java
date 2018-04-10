@@ -2,29 +2,27 @@ package View;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
-public class EntradaVista extends JFrame {
+public class EntradaVista extends JPanel {
 
     private JButton jbDemanar = new JButton();
     private JButton jbReserva = new JButton();
 
     public EntradaVista () {
-        setSize(600, 400);
-        setLocationRelativeTo(null);
-        setTitle("DPO-1718-LSRestaurant-Entrada");
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
 
         JPanel jpCentre = Centre();      //Creem el panell central
 
-        getContentPane().setLayout(new BorderLayout());
+        this.setLayout(new BorderLayout());
 
         //Creem el titol
         JLabel jlTitol = new JLabel("LS RESTAURANT");
         jlTitol.setHorizontalTextPosition(SwingConstants.CENTER);
 
         //Afegim el titol i el panell anterior al JPanel principal
-        getContentPane().add(jlTitol, BorderLayout.NORTH);
-        getContentPane().add(jpCentre, BorderLayout.CENTER);
+        this.add(jlTitol, BorderLayout.NORTH);
+        this.add(jpCentre, BorderLayout.CENTER);
 
         jpCentre.setAlignmentX(SwingConstants.CENTER);
         jlTitol.setAlignmentX(SwingConstants.CENTER);
@@ -53,5 +51,8 @@ public class EntradaVista extends JFrame {
         return jpCentre;
     }
 
-
+    public void registraControlador(ActionListener controller) {         //Registro els botons
+        jbReserva.addActionListener(controller);
+        jbDemanar.addActionListener(controller);
+    }
 }

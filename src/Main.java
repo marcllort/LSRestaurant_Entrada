@@ -1,16 +1,9 @@
-import View.EntradaVista;
-import View.VistaReservar;
+import Model.PanelSelect;
 
 public class Main {
 
     public static void main(String[] args) {
-        EntradaVista e_vista = new EntradaVista();          //Inicialitzem la vista
-        VistaReservar r_vista = new VistaReservar();
-
-        r_vista.setVisible(true);
-        e_vista.setVisible(true);                           //Fem que sigui visible
-        
+        PanelSelect ps = new PanelSelect();
+        ps.setVisible(true);
     }
-
-
 }

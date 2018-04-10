@@ -3,7 +3,7 @@ package View;
 import javax.swing.*;
 import java.awt.*;
 
-public class VistaReservar extends JFrame{
+public class VistaReservar extends JPanel{
 
     private static final int MAX_COMENSALS = 15;
     private JTextField jtfUsuari = new JTextField();
@@ -12,15 +12,13 @@ public class VistaReservar extends JFrame{
     private JTextField jtfAny = new JTextField();
     private JComboBox<String> jcbHores = new JComboBox<>();
     private JComboBox<String> jcbComensals = new JComboBox<>();
+    private JButton jbReservar = new JButton();
+
     public VistaReservar () {
-        setSize(600, 400);
-        setLocationRelativeTo(null);
-        setTitle("DPO-1718-LSRestaurant-Entrada");
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         JPanel jpMain = Reserva();       //Creem el JPanel principal
 
-        getContentPane().add(jpMain);
+        this.add(jpMain);
 
     }
 
@@ -38,6 +36,8 @@ public class VistaReservar extends JFrame{
         jpReserva.add(dia());
         jpReserva.add(hora());
         jpReserva.add(comensals());
+        jbReservar.setText("Reservar");
+        jpReserva.add(jbReservar);
 
         return jpReserva;
     }
