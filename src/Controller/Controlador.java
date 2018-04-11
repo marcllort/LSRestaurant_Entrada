@@ -1,7 +1,9 @@
 package Controller;
 
-import Model.PanelSelect;
+import View.PanelSelect;
 import View.EntradaVista;
+import View.VistaDemanar;
+import View.VistaReservar;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -9,21 +11,37 @@ import java.awt.event.ActionListener;
 
 public class Controlador implements ActionListener {
 
-    private final EntradaVista vista;
+    private PanelSelect ps;
+    private EntradaVista ev;
+    private VistaReservar vr;
+    private VistaDemanar vd;
 
-    private PanelSelect panelSelect = new PanelSelect();
+    public Controlador (PanelSelect ps){
+        this.ps = ps;
+    }
 
-    public Controlador (EntradaVista vista){
-        this.vista = vista;
+    public Controlador (EntradaVista ev){
+        this.ev = ev;
+    }
+
+    public Controlador (VistaReservar vr){
+        this.vr = vr;
+    }
+
+    public Controlador (VistaDemanar vd){
+        this.vd = vd;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (((JButton)e.getSource()).getText().equals("RESERVAR")){
-            panelSelect.changePanel("RESERVAR");
-        }
         if (((JButton)e.getSource()).getText().equals("DEMANAR")){
-            panelSelect.changePanel("DEMANAR");
+            System.out.println("Demanar");
+            ps.changePanel("DEMANAR");
+        }
+
+        if (((JButton)e.getSource()).getText().equals("RESERVAR")){
+            System.out.println("Reservar");
+            ps.changePanel("RESERVAR");
         }
     }
 }

@@ -1,5 +1,7 @@
 package View;
 
+import Controller.Controlador;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -42,7 +44,7 @@ public class VistaReservar extends JPanel{
         return jpReserva;
     }
 
-    private JPanel comensals() {
+    protected JPanel comensals() {
         JPanel jpComensals = new JPanel();
 
         jpComensals.setLayout(new GridLayout(1,2));
@@ -91,7 +93,7 @@ public class VistaReservar extends JPanel{
         return jpDia;
     }
 
-    private JPanel usuari() {
+    protected JPanel usuari() {
         JPanel jpUsu = new JPanel();
 
         jpUsu.setLayout(new GridLayout(1,2));
@@ -104,4 +106,7 @@ public class VistaReservar extends JPanel{
     }
 
 
+    public void registraControlador(Controlador controlador_er) {
+
+    }
 }

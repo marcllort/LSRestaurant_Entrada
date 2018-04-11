@@ -1,5 +1,7 @@
 package View;
 
+import Controller.Controlador;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -68,4 +70,7 @@ public class VistaDemanar extends JPanel{
     }
 
 
+    public void registraControlador(Controlador controlador_vd) {
+
+    }
 }
