@@ -54,5 +54,7 @@ public class EntradaVista extends JPanel {
     public void registraControlador(ActionListener controller) {         //Registro els botons
         jbReserva.addActionListener(controller);
         jbDemanar.addActionListener(controller);
+        jbReserva.setActionCommand("RESERVAR");
+        jbDemanar.setActionCommand("DEMANAR");
     }
 }

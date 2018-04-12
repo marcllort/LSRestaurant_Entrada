@@ -20,28 +20,26 @@ public class Controlador implements ActionListener {
         this.ps = ps;
     }
 
-    public Controlador (EntradaVista ev){
-        this.ev = ev;
-    }
-
-    public Controlador (VistaReservar vr){
-        this.vr = vr;
-    }
-
-    public Controlador (VistaDemanar vd){
-        this.vd = vd;
-    }
-
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (((JButton)e.getSource()).getText().equals("DEMANAR")){
+        if (e.getActionCommand().equals("DEMANAR")){
             System.out.println("Demanar");
             ps.changePanel("DEMANAR");
         }
 
-        if (((JButton)e.getSource()).getText().equals("RESERVAR")){
+        if (e.getActionCommand().equals("RESERVAR")){
             System.out.println("Reservar");
             ps.changePanel("RESERVAR");
+        }
+
+        if (e.getActionCommand().equals("NovaReserva")){
+            System.out.println("Nova Reserva Sol·licitada");
+            System.out.println("A nom de: " + ps.getReservarVista().getTypedUser() + "\nDia: " + ps.getReservarVista().getTypedDate().toString() + "\nHora: " + ps.getReservarVista().getHora() + "\nComensals: " + ps.getReservarVista().getComensals());
+        }
+
+        if (e.getActionCommand().equals("NovaDemanda")){
+            System.out.println("Nova Demanda Sol·licitada");
+            System.out.println("A nom de: " + ps.getDemanarVista().getTypedUser() + "\nDia: " + ps.getDemanarVista().getPCdate() + "\nHora: " + ps.getDemanarVista().getPChour() + "\nComensals: " + ps.getDemanarVista().getComensals());
         }
     }
 }

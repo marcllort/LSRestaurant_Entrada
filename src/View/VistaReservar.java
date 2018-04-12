@@ -1,9 +1,9 @@
 package View;
 
-import Controller.Controlador;
-
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
+import java.util.Date;
 
 public class VistaReservar extends JPanel{
 
@@ -106,7 +106,30 @@ public class VistaReservar extends JPanel{
     }
 
 
-    public void registraControlador(Controlador controlador_er) {
+    public void registraControlador(ActionListener controller) {
 
+        jbReservar.addActionListener(controller);
+        jbReservar.setActionCommand("NovaReserva");
+
+    }
+
+    public String getTypedUser (){
+        return jtfUsuari.getText();
+    }
+
+    public Date getTypedDate (){
+        Date data;
+
+        data = new Date(Integer.parseInt(jtfAny.getText()), Integer.parseInt(jtfMes.getText()), Integer.parseInt(jtfDia.getText()));
+
+        return data;
+    }
+
+    public String getHora (){
+        return (String) jcbHores.getSelectedItem();
+    }
+
+    public String getComensals(){
+        return (String) jcbComensals.getSelectedItem();
     }
 }

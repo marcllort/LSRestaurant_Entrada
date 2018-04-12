@@ -10,10 +10,6 @@ public class PanelSelect extends JFrame{
     private EntradaVista entradaVista;
     private VistaReservar reservarVista;
     private VistaDemanar demanarVista;
-    private Controlador controlador;
-    private Controlador controlador_ev;
-    private Controlador controlador_vr;
-    private Controlador controlador_vd;
     private CardLayout layout;
     private JPanel cards;
 
@@ -25,16 +21,13 @@ public class PanelSelect extends JFrame{
         this.setLocationRelativeTo(null);
 
         this.entradaVista = new EntradaVista();
-        controlador_ev = new Controlador(entradaVista);
-        entradaVista.registraControlador(controlador_ev);
+
 
         this.reservarVista = new VistaReservar();
-        controlador_vr = new Controlador(reservarVista);
-        reservarVista.registraControlador(controlador_vr);
+
 
         this.demanarVista = new VistaDemanar();
-        controlador_vd = new Controlador(reservarVista);
-        demanarVista.registraControlador(controlador_vd);
+
 
         layout = new CardLayout();
 
@@ -54,6 +47,20 @@ public class PanelSelect extends JFrame{
     }
 
     public void registraControlador(Controlador controlador) {
-        this.controlador = controlador;
+        entradaVista.registraControlador(controlador);
+        reservarVista.registraControlador(controlador);
+        demanarVista.registraControlador(controlador);
+    }
+
+    public EntradaVista getEntradaVista(){
+        return entradaVista;
+    }
+
+    public VistaReservar getReservarVista() {
+        return reservarVista;
+    }
+
+    public VistaDemanar getDemanarVista() {
+        return demanarVista;
     }
 }

@@ -9,7 +9,7 @@ public class Main {
         Controlador controlador = new Controlador(ps);
 
         ps.registraControlador(controlador);
-
+        
         ps.setVisible(true);
     }
 }

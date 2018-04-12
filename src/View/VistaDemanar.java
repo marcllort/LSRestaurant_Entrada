@@ -1,18 +1,16 @@
 package View;
 
-import Controller.Controlador;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class VistaDemanar extends JPanel{
 
     private static final int MAX_COMENSALS = 15;
     private JTextField jtfUsuari = new JTextField();
-    private JTextField jtfDia = new JTextField();
-    private JTextField jtfMes = new JTextField();
-    private JTextField jtfAny = new JTextField();
-    private JComboBox<String> jcbHores = new JComboBox<>();
     private JComboBox<String> jcbComensals = new JComboBox<>();
     private JButton jbDemanar = new JButton();
 
@@ -70,7 +68,28 @@ public class VistaDemanar extends JPanel{
     }
 
 
-    public void registraControlador(Controlador controlador_vd) {
+    public void registraControlador(ActionListener controller) {
+
+        jbDemanar.addActionListener(controller);
+        jbDemanar.setActionCommand("NovaDemanda");
 
     }
+
+    public String getTypedUser (){
+        return jtfUsuari.getText();
+    }
+
+    public String getPCdate(){
+        return LocalDate.now().toString();
+    }
+
+    public String getPChour(){
+        return LocalTime.now().toString();
+    }
+
+    public String getComensals(){
+        return (String) jcbComensals.getSelectedItem();
+    }
+
+
 }
