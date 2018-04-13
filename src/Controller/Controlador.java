@@ -5,10 +5,8 @@ import Model.Reserva;
 import NetworkManager.ServerConnect;
 import View.PanelSelect;
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.ResultSet;
 
 public class Controlador implements ActionListener {
 
@@ -96,6 +94,8 @@ public class Controlador implements ActionListener {
 
                 //Just després rebem la contranseya o el error en un string, mostrar per jdialog
                 ps.mostraMissatge(sc.repResposta());
+
+                ps.changePanel("ENTRADA");
             }else{
                 //Missatge d'error
                 ps.mostraError(error);
