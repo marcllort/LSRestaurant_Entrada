@@ -57,13 +57,13 @@ public class Controlador implements ActionListener {
 
             //Reserva de prova, enviar la real entrada per l'usuari
             Reserva reserva = new Reserva(
-                    ps.getReservarVista().getTypedUser(),
-                    ps.getReservarVista().getComensals(),
+                    ps.getDemanarVista().getTypedUser(),
+                    ps.getDemanarVista().getComensals(),
                     gestionador.newData(
-                            ps.getReservarVista().getTypedDateDia(),
-                            ps.getReservarVista().getTypedDateMes(),
-                            ps.getReservarVista().getTypedDateAny()),
-                    ps.getReservarVista().getHora());
+                            ps.getDemanarVista().getTypedDateDia(),
+                            ps.getDemanarVista().getTypedDateMes(),
+                            ps.getDemanarVista().getTypedDateAny()),
+                    ps.getDemanarVista().getHora());
 
             //Enviar quan toquin el boto
             sc.enviaReserva(reserva);
