@@ -21,7 +21,7 @@ public class Gestionador {
         return true;
     }
 
-    public synchronized Date newData(int dia, int mes, int any) {
+    public synchronized Date newData(Integer dia, Integer mes, Integer any) {
         if (isValidDate(any + "-" + mes + "-" + dia)) {
             Calendar cal = Calendar.getInstance();
             cal.set(Calendar.YEAR, any);

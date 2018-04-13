@@ -3,6 +3,7 @@ package View;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.sql.Time;
 import java.util.Date;
 
 public class VistaReservar extends JPanel{
@@ -44,7 +45,7 @@ public class VistaReservar extends JPanel{
         return jpReserva;
     }
 
-    protected JPanel comensals() {
+    private JPanel comensals() {
         JPanel jpComensals = new JPanel();
 
         jpComensals.setLayout(new GridLayout(1,2));
@@ -117,19 +118,41 @@ public class VistaReservar extends JPanel{
         return jtfUsuari.getText();
     }
 
-    public Date getTypedDate (){
-        Date data;
+    public Integer getTypedDateAny (){
 
-        data = new Date(Integer.parseInt(jtfAny.getText()), Integer.parseInt(jtfMes.getText()), Integer.parseInt(jtfDia.getText()));
+        return Integer.parseInt(jtfAny.getText());
 
-        return data;
     }
 
-    public String getHora (){
-        return (String) jcbHores.getSelectedItem();
+    public Integer getTypedDateMes (){
+
+        return Integer.parseInt(jtfMes.getText());
+
     }
 
-    public String getComensals(){
-        return (String) jcbComensals.getSelectedItem();
+    public Integer getTypedDateDia (){
+
+        return Integer.parseInt(jtfDia.getText());
+
+    }
+
+    public Time getHora (){
+        String time = jcbHores.getSelectedItem().toString();
+
+        String[] parts = time.split(":");
+        String horaString = parts[0]; // hores
+        String minutString = parts[1]; // minuts
+
+        int hora = Integer.parseInt(horaString);
+
+        int minuts = Integer.parseInt(minutString);
+
+        int segons = 0;
+
+        return new Time(hora,minuts,segons) ;
+    }
+
+    public Integer getComensals(){
+        return Integer.parseInt(jcbComensals.getSelectedItem().toString());
     }
 }
