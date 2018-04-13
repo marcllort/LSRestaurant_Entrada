@@ -69,18 +69,17 @@ public class PanelSelect extends JFrame{
     }
 
     public void mostraMissatge(String s) {
-        JFrame frame = new JFrame();
 
-        JOptionPane.showMessageDialog(frame, s);
+        JOptionPane.showMessageDialog(this, s);
 
-        frame.setVisible(true);
+        this.setVisible(true);
     }
 
     public void mostraError(int error) {
         //Mostrem JDialog
         String quinError;
 
-        JFrame frame = new JFrame();
+
 
         switch (error){
             case 1:
@@ -98,17 +97,17 @@ public class PanelSelect extends JFrame{
         }
 
         if (error == 1){
-            JOptionPane.showMessageDialog(frame,
+            JOptionPane.showMessageDialog(this,
                     quinError,
                     "Warning",
                     JOptionPane.WARNING_MESSAGE);
         }else {
-            JOptionPane.showMessageDialog(frame,
+            JOptionPane.showMessageDialog(this,
                     quinError,
                     "Error",
                     JOptionPane.ERROR_MESSAGE);
         }
 
-        frame.setVisible(true);
+        this.setVisible(true);
     }
 }
