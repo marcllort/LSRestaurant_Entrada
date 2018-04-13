@@ -2,25 +2,25 @@ package View;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
+import java.util.Date;
 
-public class VistaReservar extends JFrame{
+public class VistaReservar extends JPanel{
 
+    private static final int MAX_COMENSALS = 15;
     private JTextField jtfUsuari = new JTextField();
     private JTextField jtfDia = new JTextField();
     private JTextField jtfMes = new JTextField();
     private JTextField jtfAny = new JTextField();
-    private JComboBox<String> hores = new JComboBox<>();
-    private JTextField jtfComensals = new JTextField();
+    private JComboBox<String> jcbHores = new JComboBox<>();
+    private JComboBox<String> jcbComensals = new JComboBox<>();
+    private JButton jbReservar = new JButton();
 
     public VistaReservar () {
-        setSize(600, 400);
-        setLocationRelativeTo(null);
-        setTitle("DPO-1718-LSRestaurant-Entrada");
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         JPanel jpMain = Reserva();       //Creem el JPanel principal
 
-        getContentPane().add(jpMain);
+        this.add(jpMain);
 
     }
 
@@ -38,17 +38,24 @@ public class VistaReservar extends JFrame{
         jpReserva.add(dia());
         jpReserva.add(hora());
         jpReserva.add(comensals());
+        jbReservar.setText("Reservar");
+        jpReserva.add(jbReservar);
 
         return jpReserva;
     }
 
-    private JPanel comensals() {
+    protected JPanel comensals() {
         JPanel jpComensals = new JPanel();
 
         jpComensals.setLayout(new GridLayout(1,2));
 
         jpComensals.add(new JLabel("Comensals: "));
-        jpComensals.add(jtfComensals);
+
+        for(Integer i = 1; i <= MAX_COMENSALS; i++) {
+            jcbComensals.addItem(i.toString());
+        }
+
+        jpComensals.add(jcbComensals);
 
         return jpComensals;
     }
@@ -61,12 +68,12 @@ public class VistaReservar extends JFrame{
         jpHora.add(new JLabel("Hora: "));
 
         //ComboBox Horas
-        hores.addItem("13:00");
-        hores.addItem("14:30");
-        hores.addItem("19:30");
-        hores.addItem("21:30");
+        jcbHores.addItem("13:00");
+        jcbHores.addItem("14:30");
+        jcbHores.addItem("19:30");
+        jcbHores.addItem("21:30");
 
-        jpHora.add(hores);
+        jpHora.add(jcbHores);
 
         return jpHora;
     }
@@ -86,7 +93,7 @@ public class VistaReservar extends JFrame{
         return jpDia;
     }
 
-    private JPanel usuari() {
+    protected JPanel usuari() {
         JPanel jpUsu = new JPanel();
 
         jpUsu.setLayout(new GridLayout(1,2));
@@ -99,4 +106,30 @@ public class VistaReservar extends JFrame{
     }
 
 
+    public void registraControlador(ActionListener controller) {
+
+        jbReservar.addActionListener(controller);
+        jbReservar.setActionCommand("NovaReserva");
+
+    }
+
+    public String getTypedUser (){
+        return jtfUsuari.getText();
+    }
+
+    public Date getTypedDate (){
+        Date data;
+
+        data = new Date(Integer.parseInt(jtfAny.getText()), Integer.parseInt(jtfMes.getText()), Integer.parseInt(jtfDia.getText()));
+
+        return data;
+    }
+
+    public String getHora (){
+        return (String) jcbHores.getSelectedItem();
+    }
+
+    public String getComensals(){
+        return (String) jcbComensals.getSelectedItem();
+    }
 }

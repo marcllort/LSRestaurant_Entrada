@@ -2,23 +2,30 @@ package View;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
-public class EntradaVista extends JFrame {
+public class EntradaVista extends JPanel {
 
     private JButton jbDemanar = new JButton();
     private JButton jbReserva = new JButton();
 
     public EntradaVista () {
-        setSize(600, 400);
-        setLocationRelativeTo(null);
-        setTitle("DPO-1718-LSRestaurant-Entrada");
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
 
         JPanel jpCentre = Centre();      //Creem el panell central
 
-        JPanel jpMain = Borders(jpCentre);       //Creem el JPanel principal
+        this.setLayout(new BorderLayout());
 
-        getContentPane().add(jpMain);
+        //Creem el titol
+        JLabel jlTitol = new JLabel("LS RESTAURANT");
+        jlTitol.setHorizontalTextPosition(SwingConstants.CENTER);
+
+        //Afegim el titol i el panell anterior al JPanel principal
+        this.add(jlTitol, BorderLayout.NORTH);
+        this.add(jpCentre, BorderLayout.CENTER);
+
+        jpCentre.setAlignmentX(SwingConstants.CENTER);
+        jlTitol.setAlignmentX(SwingConstants.CENTER);
 
     }
 
@@ -30,34 +37,24 @@ public class EntradaVista extends JFrame {
         //Creem els butons i els alineem
 
         jbDemanar.setText("DEMANAR");
-        jbDemanar.setAlignmentX(SwingConstants.CENTER);
         jbReserva.setText("RESERVAR");
-        jbReserva.setAlignmentX(SwingConstants.CENTER);
 
         //Els afegim
 
         jpCentre.add(jbDemanar);
         jpCentre.add(jbReserva);
 
+        jbDemanar.setAlignmentX(SwingConstants.CENTER);
+        jbReserva.setAlignmentX(SwingConstants.CENTER);
+        jpCentre.setAlignmentX(SwingConstants.CENTER);
+
         return jpCentre;
     }
 
-    private JPanel Borders(JPanel jpCentre){
-        JPanel jpMain = new JPanel();
-
-        jpMain.setLayout(new BorderLayout());
-
-        //Creem el titol
-        JLabel jlTitol = new JLabel("LS Restaurant");
-        jlTitol.setHorizontalTextPosition(SwingConstants.CENTER);
-
-        //Afegim el titol i el panell anterior al JPanel principal
-        jpMain.add(jlTitol, BorderLayout.NORTH);
-        jpMain.add(jpCentre, BorderLayout.CENTER);
-
-        return jpMain;
+    public void registraControlador(ActionListener controller) {         //Registro els botons
+        jbReserva.addActionListener(controller);
+        jbDemanar.addActionListener(controller);
+        jbReserva.setActionCommand("RESERVAR");
+        jbDemanar.setActionCommand("DEMANAR");
     }
-
-
-
 }
