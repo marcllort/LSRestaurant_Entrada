@@ -16,6 +16,7 @@ public class VistaReservar extends JPanel{
     private JComboBox<String> jcbHores = new JComboBox<>();
     private JComboBox<String> jcbComensals = new JComboBox<>();
     private JButton jbReservar = new JButton();
+    private JButton jbHome = new JButton();
 
     public VistaReservar () {
 
@@ -41,6 +42,8 @@ public class VistaReservar extends JPanel{
         jpReserva.add(comensals());
         jbReservar.setText("Reservar");
         jpReserva.add(jbReservar);
+        jbHome.setText("Home");
+        jpReserva.add(jbHome);
 
         return jpReserva;
     }
@@ -111,6 +114,8 @@ public class VistaReservar extends JPanel{
 
         jbReservar.addActionListener(controller);
         jbReservar.setActionCommand("NovaReserva");
+        jbHome.addActionListener(controller);
+        jbHome.setActionCommand("Home");
 
     }
 

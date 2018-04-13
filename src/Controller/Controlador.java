@@ -22,6 +22,10 @@ public class Controlador implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if (e.getActionCommand().equals("Home")){
+            ps.changePanel("ENTRADA");
+        }
+
         if (e.getActionCommand().equals("DEMANAR")){
             System.out.println("Demanar");
             ps.changePanel("DEMANAR");

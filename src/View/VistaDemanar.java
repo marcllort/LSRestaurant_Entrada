@@ -14,16 +14,17 @@ public class VistaDemanar extends JPanel{
     private JTextField jtfUsuari = new JTextField();
     private JComboBox<String> jcbComensals = new JComboBox<>();
     private JButton jbDemanar = new JButton();
+    private JButton jbHome = new JButton();
 
     public VistaDemanar () {
 
-        JPanel jpMain = Reserva();       //Creem el JPanel principal
+        JPanel jpMain = demanar();       //Creem el JPanel principal
 
         this.add(jpMain);
 
     }
 
-    private JPanel Reserva() {
+    private JPanel demanar() {
 
         JPanel jpReserva = new JPanel();
 
@@ -36,6 +37,8 @@ public class VistaDemanar extends JPanel{
         jpReserva.add(comensals());
         jbDemanar.setText("Demanar");
         jpReserva.add(jbDemanar);
+        jbHome.setText("Home");
+        jpReserva.add(jbHome);
 
         return jpReserva;
     }
@@ -73,6 +76,8 @@ public class VistaDemanar extends JPanel{
 
         jbDemanar.addActionListener(controller);
         jbDemanar.setActionCommand("NovaDemanda");
+        jbHome.addActionListener(controller);
+        jbHome.setActionCommand("Home");
 
     }
 
