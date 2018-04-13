@@ -4,6 +4,7 @@ package View;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -79,46 +80,40 @@ public class VistaDemanar extends JPanel{
         return jtfUsuari.getText();
     }
 
-    public String getPCdate(){
-        return LocalDate.now().toString();
-    }
+    public Time nextHour(){
+        int hores = LocalTime.now().getHour();
 
-    public String getPChour(){
-        String localTime = LocalTime.now().toString();
-
-        String[] parts = localTime.split(":");
-        Integer hores = Integer.parseInt(parts[0]); // hores
-
-        while (hores != 13 && hores != 14 && hores != 19 && hores != 21){
+        while (hores != 13 && hores != 14 && hores != 19 && hores != 21 && hores != 25){
             hores++;
-            if (hores >= 24){
-                return "No hi han taules";
-            }
         }
 
-        Integer minuts;
+        int minuts;
 
-        if(hores == 13){
+        if(hores == 13 || hores == 25){
            minuts = 0;
         }else{
            minuts = 30;
         }
 
-        String hora = hores + ":" + minuts;
+        Time hora = new Time (hores,minuts,0);
 
         return hora;
     }
 
-    public String getComensals(){
-        return (String) jcbComensals.getSelectedItem();
+    public Integer getComensals(){
+        return Integer.parseInt(jcbComensals.getSelectedItem().toString());
     }
 
 
     public Integer getTypedDateDia() {
-        String localDate = LocalDate.now().toString();
+        return LocalDate.now().getDayOfMonth();
+    }
 
-        String[] parts = localDate.split(":");
+    public Integer getTypedDateMes() {
+        return LocalDate.now().getMonthValue();
+    }
 
-        return Integer.parseInt(parts[2]);
+    public Integer getTypedDateAny() {
+        return LocalDate.now().getYear();
     }
 }

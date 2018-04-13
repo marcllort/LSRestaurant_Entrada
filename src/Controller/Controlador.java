@@ -44,11 +44,17 @@ public class Controlador implements ActionListener {
                             ps.getReservarVista().getTypedDateAny()),
                     ps.getReservarVista().getHora());
 
-            //Enviar quan toquin el boto
-            sc.enviaReserva(reserva);
+            System.out.println(reserva.toString());
 
-            //Just després rebem la contranseya o el error en un string, mostrar per jdialog
-            System.out.println(sc.repResposta());
+            if(isValidaDades()){
+                //Enviar quan toquin el boto
+                sc.enviaReserva(reserva);
+
+                //Just després rebem la contranseya o el error en un string, mostrar per jdialog
+                System.out.println(sc.repResposta());
+            }else{
+                //Missatge d'error
+            }
 
         }
 
@@ -63,13 +69,24 @@ public class Controlador implements ActionListener {
                             ps.getDemanarVista().getTypedDateDia(),
                             ps.getDemanarVista().getTypedDateMes(),
                             ps.getDemanarVista().getTypedDateAny()),
-                    ps.getDemanarVista().getHora());
+                    ps.getDemanarVista().nextHour());
 
-            //Enviar quan toquin el boto
-            sc.enviaReserva(reserva);
+            System.out.println(reserva.toString());
 
-            System.out.println(sc.repResposta());
+            if(isValidaDades()){
+                //Enviar quan toquin el boto
+                sc.enviaReserva(reserva);
+
+                //Just després rebem la contranseya o el error en un string, mostrar per jdialog
+                System.out.println(sc.repResposta());
+            }else{
+                //Missatge d'error
+            }
 
         }
+    }
+
+    private boolean isValidaDades() {
+        return true;
     }
 }
