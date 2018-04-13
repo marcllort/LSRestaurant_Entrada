@@ -63,4 +63,52 @@ public class PanelSelect extends JFrame{
     public VistaDemanar getDemanarVista() {
         return demanarVista;
     }
+
+    public void optionPaneResposta(String s) {
+
+    }
+
+    public void mostraMissatge(String s) {
+        JFrame frame = new JFrame();
+
+        JOptionPane.showMessageDialog(frame, s);
+
+        frame.setVisible(true);
+    }
+
+    public void mostraError(int error) {
+        //Mostrem JDialog
+        String quinError;
+
+        JFrame frame = new JFrame();
+
+        switch (error){
+            case 1:
+                quinError = "No has introduit usuari!";
+                break;
+            case 2:
+                quinError = "Error detectat en la data!";
+                break;
+            case 3:
+                quinError = "Error detectat en la hora!";
+                break;
+            default:
+                quinError = "Error indefinit";
+                break;
+        }
+
+        if (error == 1){
+            JOptionPane.showMessageDialog(frame,
+                    quinError,
+                    "Warning",
+                    JOptionPane.WARNING_MESSAGE);
+        }else {
+            JOptionPane.showMessageDialog(frame,
+                    quinError,
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+
+        frame.setVisible(true);
+    }
 }

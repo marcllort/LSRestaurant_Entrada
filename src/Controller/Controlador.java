@@ -5,8 +5,10 @@ import Model.Reserva;
 import NetworkManager.ServerConnect;
 import View.PanelSelect;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 
 public class Controlador implements ActionListener {
 
@@ -50,14 +52,21 @@ public class Controlador implements ActionListener {
 
             System.out.println(reserva.toString());
 
-            if(isValidaDades()){
+            int error = isValidaDades(reserva);
+
+            if(error == 0){
+                ps.getReservarVista().netejaDades();
+
                 //Enviar quan toquin el boto
                 sc.enviaReserva(reserva);
 
                 //Just després rebem la contranseya o el error en un string, mostrar per jdialog
-                System.out.println(sc.repResposta());
+                ps.mostraMissatge(sc.repResposta());
+
+                ps.changePanel("ENTRADA");
             }else{
                 //Missatge d'error
+                ps.mostraError(error);
             }
 
         }
@@ -77,20 +86,36 @@ public class Controlador implements ActionListener {
 
             System.out.println(reserva.toString());
 
-            if(isValidaDades()){
+            int error = isValidaDades(reserva);
+
+            if(error == 0){
+                ps.getDemanarVista().netejaDades();
+
                 //Enviar quan toquin el boto
                 sc.enviaReserva(reserva);
 
                 //Just després rebem la contranseya o el error en un string, mostrar per jdialog
-                System.out.println(sc.repResposta());
+                ps.mostraMissatge(sc.repResposta());
             }else{
                 //Missatge d'error
+                ps.mostraError(error);
             }
 
         }
     }
 
-    private boolean isValidaDades() {
-        return true;
+    private int isValidaDades(Reserva reserva) {
+        if (reserva.getUsuari().equals("")){
+            return 1;
+        }else{
+            if(reserva.getData() == null){
+                return 2;
+            }else{
+                if (reserva.getHora().getHours() == 25){
+                    return 3;
+                }
+            }
+        }
+        return 0;
     }
 }

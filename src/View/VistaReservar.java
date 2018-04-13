@@ -160,4 +160,15 @@ public class VistaReservar extends JPanel{
     public Integer getComensals(){
         return Integer.parseInt(jcbComensals.getSelectedItem().toString());
     }
+
+    public void netejaDades() {
+
+        jtfUsuari.setText("");
+        jtfAny.setText("");
+        jtfMes.setText("");
+        jtfDia.setText("");
+        jcbComensals.setSelectedIndex(0);
+        jcbHores.setSelectedIndex(0);
+
+    }
 }

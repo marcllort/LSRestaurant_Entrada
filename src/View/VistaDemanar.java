@@ -121,4 +121,11 @@ public class VistaDemanar extends JPanel{
     public Integer getTypedDateAny() {
         return LocalDate.now().getYear();
     }
+
+    public void netejaDades() {
+
+        jtfUsuari.setText("");
+        jcbComensals.setSelectedIndex(0);
+
+    }
 }
