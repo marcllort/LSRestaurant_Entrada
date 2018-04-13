@@ -7,6 +7,7 @@ import View.PanelSelect;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalTime;
 
 public class Controlador implements ActionListener {
 
@@ -114,6 +115,13 @@ public class Controlador implements ActionListener {
                 if (reserva.getHora().getHours() == 25){
                     return 3;
                 }
+                if (LocalTime.now().getHour() > reserva.getHora().getHours()){
+                    return 3;
+                }
+                if (LocalTime.now().getHour() == reserva.getHora().getHours() && LocalTime.now().getMinute() > reserva.getHora().getMinutes()){
+                    return 3;
+                }
+
             }
         }
         return 0;

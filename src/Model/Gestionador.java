@@ -1,8 +1,11 @@
 package Model;
 
 import java.sql.Date;
+//import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Calendar;
 
 public class Gestionador {
@@ -21,15 +24,19 @@ public class Gestionador {
         return true;
     }
 
-    public synchronized Date newData(Integer dia, Integer mes, Integer any) {
+    public synchronized java.sql.Date newData(Integer dia, Integer mes, Integer any) {
         if (isValidDate(any + "-" + mes + "-" + dia)) {
             Calendar cal = Calendar.getInstance();
             cal.set(Calendar.YEAR, any);
             cal.set(Calendar.MONTH, mes - 1);
             cal.set(Calendar.DAY_OF_MONTH, dia);
 
-
-            return new Date(cal.getTimeInMillis());
+            java.sql.Date data = new java.sql.Date(cal.getTimeInMillis());
+            java.util.Date dataNow = new java.util.Date();
+            if (data.before(dataNow)){
+                return null;
+            }
+            return new java.sql.Date(cal.getTimeInMillis());
         }
         return null;
     }
