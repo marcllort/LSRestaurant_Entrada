@@ -125,19 +125,46 @@ public class VistaReservar extends JPanel{
 
     public Integer getTypedDateAny (){
 
-        return Integer.parseInt(jtfAny.getText());
+        try{
+
+            return Integer.parseInt(jtfAny.getText());
+
+        }catch (Exception e){
+
+            jtfAny.setText("");
+
+            return 420;
+
+        }
 
     }
 
     public Integer getTypedDateMes (){
 
-        return Integer.parseInt(jtfMes.getText());
+        try {
+
+            return Integer.parseInt(jtfMes.getText());
+
+        }catch (Exception e){
+
+            jtfMes.setText("");
+
+            return 420;
+        }
 
     }
 
     public Integer getTypedDateDia (){
 
-        return Integer.parseInt(jtfDia.getText());
+        try {
+
+            return Integer.parseInt(jtfDia.getText());
+
+        }catch (Exception e){
+            jtfDia.setText("");
+
+            return 420;
+        }
 
     }
 

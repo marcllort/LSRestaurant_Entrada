@@ -7,7 +7,12 @@ import View.PanelSelect;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.ZoneId;
+import java.util.Calendar;
 
 public class Controlador implements ActionListener {
 
@@ -44,7 +49,8 @@ public class Controlador implements ActionListener {
             Reserva reserva = new Reserva(
                     ps.getReservarVista().getTypedUser(),
                     ps.getReservarVista().getComensals(),
-                    gestionador.newData(ps.getReservarVista().getTypedDateDia(),
+                    gestionador.newData(
+                            ps.getReservarVista().getTypedDateDia(),
                             ps.getReservarVista().getTypedDateMes(),
                             ps.getReservarVista().getTypedDateAny()),
                     ps.getReservarVista().getHora());
@@ -115,7 +121,7 @@ public class Controlador implements ActionListener {
                 if (reserva.getHora().getHours() == 25){
                     return 3;
                 }
-                if (LocalTime.now().getHour() > reserva.getHora().getHours()){
+                if (LocalTime.now().getHour() > reserva.getHora().getHours() && diaCorrecte(reserva)){
                     return 3;
                 }
                 if (LocalTime.now().getHour() == reserva.getHora().getHours() && LocalTime.now().getMinute() > reserva.getHora().getMinutes()){
@@ -125,5 +131,20 @@ public class Controlador implements ActionListener {
             }
         }
         return 0;
+    }
+
+    private boolean diaCorrecte(Reserva reserva) {
+
+        Date localDate = new Date('0');
+
+        localDate.setYear(LocalDate.now().getYear());
+        localDate.setMonth(LocalDate.now().getMonthValue());
+        localDate.setDate(LocalDate.now().getDayOfMonth());
+
+        if(localDate.compareTo(reserva.getData()) > 0){
+            return false;
+        }else{
+            return true;
+        }
     }
 }
