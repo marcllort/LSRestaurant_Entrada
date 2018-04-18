@@ -1,6 +1,9 @@
-package Model;
+package Model.Json;
 
-public class ConfiguracioEntrada {
+public class ConfiguracioClient {
+
+
+
     private String portServer;            //  Port de connexio amb el servidor
 
     private String ipServer;        // IP del servidor
@@ -36,3 +39,4 @@ public class ConfiguracioEntrada {
     }
 
 }
+
