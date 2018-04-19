@@ -13,7 +13,7 @@ import java.net.Socket;
 
 public class ServerConnect {
 
-    public static int portEntrada = 5555;
+    public static int portEntrada;
     private static String ipEntrada = "localhost";
     private ObjectOutputStream oos;
     private ObjectInputStream ois;
@@ -25,12 +25,9 @@ public class ServerConnect {
     public ServerConnect() {
 
         try {
-
             lectorJSON = new LectorJson();
-
             ConfiguracioClient config = lectorJSON.llegeixConfiguracioClient();
-            System.out.println(config.lectorPortServer());
-            portEntrada = Integer.parseInt(config.lectorPortServer());
+            portEntrada = config.lectorPortServer();
             ipEntrada = config.lectorIpServer();
 
             Socket socket = new Socket(ipEntrada, portEntrada);
