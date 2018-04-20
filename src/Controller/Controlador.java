@@ -118,7 +118,7 @@ public class Controlador implements ActionListener {
             if(reserva.getData() == null){
                 return 2;
             }else{
-                if (reserva.getHora().getHours() == 25){
+                if (reserva.getHora().getHours() == 1){
                     return 3;
                 }
                 if (LocalTime.now().getHour() > reserva.getHora().getHours() && diaCorrecte(reserva)){
