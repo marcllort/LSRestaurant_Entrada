@@ -17,35 +17,91 @@ public class VistaReservar extends JPanel{
     private JComboBox<String> jcbComensals = new JComboBox<>();
     private JButton jbReservar = new JButton();
     private JButton jbHome = new JButton();
+    private JPanel panel = new JPanel();
+
 
     public VistaReservar () {
 
-        JPanel jpMain = Reserva();       //Creem el JPanel principal
+        this.setLayout(null);
 
-        this.add(jpMain);
+        JLabel lblLsrestaurant = new JLabel("LS_RESTAURANT");
+        lblLsrestaurant.setBounds(174, 11, 86, 14);
+        this.add(lblLsrestaurant);
+
+        jbReservar.setText("RESERVA");
+        jbReservar.setBounds(171, 158, 89, 23);
+        this.add(jbReservar);
+
+        JPanel panel_1 = new JPanel();
+        panel_1.setBounds(15, 36, 391, 30);
+        this.add(panel_1);
+
+        JLabel lblUsuari = new JLabel("Usuari:");
+        panel_1.add(lblUsuari);
+
+        jtfUsuari = new JTextField();
+        panel_1.add(jtfUsuari);
+        jtfUsuari.setColumns(42);
+
+        panel.setBounds(15, 77, 391, 30);
+        this.add(panel);
+
+        JLabel lblDia = new JLabel("Dia: (dd/mm/aaaa)");
+        panel.add(lblDia);
+
+        jtfDia = new JTextField();
+        panel.add(jtfDia);
+        jtfDia.setColumns(10);
+
+        JLabel label = new JLabel("/");
+        panel.add(label);
+
+        jtfMes = new JTextField();
+        panel.add(jtfMes);
+        jtfMes.setColumns(10);
+
+        JLabel label_1 = new JLabel("/");
+        panel.add(label_1);
+
+        jtfAny = new JTextField();
+        panel.add(jtfAny);
+        jtfAny.setColumns(10);
+
+        JPanel panel_2 = new JPanel();
+        panel_2.setBounds(15, 118, 269, 29);
+        this.add(panel_2);
+
+        JLabel lblHora = new JLabel("Hora:");
+        panel_2.add(lblHora);
+
+        jcbHores.addItem("13:00");
+        jcbHores.addItem("14:30");
+        jcbHores.addItem("19:30");
+        jcbHores.addItem("21:30");
+
+        panel_2.add(jcbHores);
+
+        JPanel panel_3 = new JPanel();
+        panel_3.setBounds(306, 118, 100, 30);
+        this.add(panel_3);
+
+        JLabel lblComensals = new JLabel("Comensals:");
+        panel_3.add(lblComensals);
+
+        JSpinner spinner = new JSpinner();
+        panel_3.add(spinner);
 
     }
 
     private JPanel Reserva() {
 
-        JPanel jpReserva = new JPanel();
 
-        jpReserva.setLayout(new BoxLayout(jpReserva, BoxLayout.PAGE_AXIS));
 
-        JLabel jlTitol = new JLabel("LS RESTAURANT");
+        return panel;
+    }
 
-        jpReserva.add(jlTitol);
-
-        jpReserva.add(usuari());
-        jpReserva.add(dia());
-        jpReserva.add(hora());
-        jpReserva.add(comensals());
-        jbReservar.setText("Reservar");
-        jpReserva.add(jbReservar);
-        jbHome.setText("Home");
-        jpReserva.add(jbHome);
-
-        return jpReserva;
+    public JPanel getPanel (){
+        return this;
     }
 
     private JPanel comensals() {

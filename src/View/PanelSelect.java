@@ -14,7 +14,7 @@ public class PanelSelect extends JFrame{
     private JPanel cards;
 
     public PanelSelect() {
-        this.setSize(600, 400);
+        this.setSize(800, 800);
         this.setTitle("DPO-1718-LSRestaurant-Entrada");
         this.setResizable(true);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -32,8 +32,8 @@ public class PanelSelect extends JFrame{
         layout = new CardLayout();
 
         cards = new JPanel(layout);
-        cards.add("ENTRADA", entradaVista);
-        cards.add("RESERVAR", reservarVista);
+        cards.add("ENTRADA", entradaVista.getPanel());
+        cards.add("RESERVAR", reservarVista.getPanel());
         cards.add("DEMANAR", demanarVista);
 
         getContentPane().add(cards);

@@ -8,47 +8,40 @@ public class EntradaVista extends JPanel {
 
     private JButton jbDemanar = new JButton();
     private JButton jbReserva = new JButton();
+    private JPanel panel = new JPanel();
 
     public EntradaVista () {
 
+        SpringLayout sl_panel = new SpringLayout();
+        panel.setLayout(sl_panel);
 
-        JPanel jpCentre = Centre();      //Creem el panell central
+        JPanel panel_1 = new JPanel();
+        sl_panel.putConstraint(SpringLayout.NORTH, panel_1, 63, SpringLayout.NORTH, panel);
+        sl_panel.putConstraint(SpringLayout.WEST, panel_1, 44, SpringLayout.WEST, panel);
+        sl_panel.putConstraint(SpringLayout.SOUTH, panel_1, -35, SpringLayout.SOUTH, panel);
+        sl_panel.putConstraint(SpringLayout.EAST, panel_1, 378, SpringLayout.WEST, panel);
+        panel.add(panel_1);
+        panel_1.setLayout(null);
 
-        this.setLayout(new BorderLayout());
+        jbDemanar.setText("DEMANAR");
+        jbDemanar.setBounds(0, 0, 162, 103);
+        panel_1.add(jbDemanar);
 
-        //Creem el titol
-        JLabel jlTitol = new JLabel("LS RESTAURANT");
-        jlTitol.setHorizontalTextPosition(SwingConstants.CENTER);
+        jbReserva.setText("RESERVAR");
+        jbReserva.setBounds(163, 0, 171, 103);
+        panel_1.add(jbReserva);
 
-        //Afegim el titol i el panell anterior al JPanel principal
-        this.add(jlTitol, BorderLayout.NORTH);
-        this.add(jpCentre, BorderLayout.CENTER);
-
-        jpCentre.setAlignmentX(SwingConstants.CENTER);
-        jlTitol.setAlignmentX(SwingConstants.CENTER);
+        JLabel label = new JLabel("LS_RESTAURANT");
+        sl_panel.putConstraint(SpringLayout.NORTH, label, 22, SpringLayout.NORTH, panel);
+        sl_panel.putConstraint(SpringLayout.WEST, label, 163, SpringLayout.WEST, panel);
+        sl_panel.putConstraint(SpringLayout.SOUTH, label, -19, SpringLayout.NORTH, panel_1);
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        panel.add(label);
 
     }
 
-    private JPanel Centre(){
-        JPanel jpCentre = new JPanel();
-
-        jpCentre.setLayout(new BoxLayout(jpCentre, BoxLayout.PAGE_AXIS));
-
-        //Creem els butons i els alineem
-
-        jbDemanar.setText("DEMANAR");
-        jbReserva.setText("RESERVAR");
-
-        //Els afegim
-
-        jpCentre.add(jbDemanar);
-        jpCentre.add(jbReserva);
-
-        jbDemanar.setAlignmentX(SwingConstants.CENTER);
-        jbReserva.setAlignmentX(SwingConstants.CENTER);
-        jpCentre.setAlignmentX(SwingConstants.CENTER);
-
-        return jpCentre;
+    public JPanel getPanel(){
+        return panel;
     }
 
     public void registraControlador(ActionListener controller) {         //Registro els botons
