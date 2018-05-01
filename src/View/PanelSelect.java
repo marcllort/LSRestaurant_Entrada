@@ -14,7 +14,7 @@ public class PanelSelect extends JFrame{
     private JPanel cards;
 
     public PanelSelect() {
-        this.setSize(800, 800);
+        this.setSize(600, 330);
         this.setTitle("DPO-1718-LSRestaurant-Entrada");
         this.setResizable(true);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);

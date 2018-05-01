@@ -14,7 +14,7 @@ public class VistaReservar extends JPanel{
     private JTextField jtfMes = new JTextField();
     private JTextField jtfAny = new JTextField();
     private JComboBox<String> jcbHores = new JComboBox<>();
-    private JComboBox<String> jcbComensals = new JComboBox<>();
+    private JSpinner jsComensals = new JSpinner();
     private JButton jbReservar = new JButton();
     private JButton jbHome = new JButton();
     private JPanel panel = new JPanel();
@@ -25,71 +25,78 @@ public class VistaReservar extends JPanel{
         this.setLayout(null);
 
         JLabel lblLsrestaurant = new JLabel("LS_RESTAURANT");
-        lblLsrestaurant.setBounds(174, 11, 86, 14);
+        lblLsrestaurant.setFont(new Font("Tahoma", Font.BOLD, 28));
+        lblLsrestaurant.setBounds(154, 16, 249, 34);
         this.add(lblLsrestaurant);
 
         jbReservar.setText("RESERVA");
-        jbReservar.setBounds(171, 158, 89, 23);
+        jbReservar.setFont(new Font("Tahoma", Font.BOLD, 20));
+        jbReservar.setBounds(280, 195, 201, 34);
         this.add(jbReservar);
 
         JPanel panel_1 = new JPanel();
-        panel_1.setBounds(15, 36, 391, 30);
+        panel_1.setBounds(38, 61, 502, 41);
         this.add(panel_1);
 
         JLabel lblUsuari = new JLabel("Usuari:");
+        lblUsuari.setFont(new Font("Tahoma", Font.PLAIN, 20));
         panel_1.add(lblUsuari);
 
-        jtfUsuari = new JTextField();
+        jtfUsuari.setFont(new Font("Tahoma", Font.PLAIN, 20));
         panel_1.add(jtfUsuari);
-        jtfUsuari.setColumns(42);
+        jtfUsuari.setColumns(24);
 
-        panel.setBounds(15, 77, 391, 30);
+        panel.setBounds(38, 135, 383, 41);
         this.add(panel);
 
         JLabel lblDia = new JLabel("Dia: (dd/mm/aaaa)");
+        lblDia.setFont(new Font("Tahoma", Font.PLAIN, 20));
         panel.add(lblDia);
 
-        jtfDia = new JTextField();
+        jtfDia.setFont(new Font("Tahoma", Font.PLAIN, 20));
         panel.add(jtfDia);
-        jtfDia.setColumns(10);
+        jtfDia.setColumns(2);
 
         JLabel label = new JLabel("/");
         panel.add(label);
 
-        jtfMes = new JTextField();
+        jtfMes.setFont(new Font("Tahoma", Font.PLAIN, 20));
         panel.add(jtfMes);
-        jtfMes.setColumns(10);
+        jtfMes.setColumns(2);
 
         JLabel label_1 = new JLabel("/");
         panel.add(label_1);
 
-        jtfAny = new JTextField();
+        jtfAny.setFont(new Font("Tahoma", Font.PLAIN, 20));
         panel.add(jtfAny);
-        jtfAny.setColumns(10);
+        jtfAny.setColumns(4);
 
         JPanel panel_2 = new JPanel();
-        panel_2.setBounds(15, 118, 269, 29);
+        panel_2.setBounds(426, 100, 115, 70);
         this.add(panel_2);
 
         JLabel lblHora = new JLabel("Hora:");
+        lblHora.setFont(new Font("Tahoma", Font.PLAIN, 20));
         panel_2.add(lblHora);
 
+        jcbHores.setFont(new Font("Tahoma", Font.PLAIN, 20));
         jcbHores.addItem("13:00");
         jcbHores.addItem("14:30");
         jcbHores.addItem("19:30");
         jcbHores.addItem("21:30");
-
         panel_2.add(jcbHores);
 
         JPanel panel_3 = new JPanel();
-        panel_3.setBounds(306, 118, 100, 30);
+        panel_3.setBounds(38, 188, 165, 41);
         this.add(panel_3);
 
         JLabel lblComensals = new JLabel("Comensals:");
+        lblComensals.setFont(new Font("Tahoma", Font.PLAIN, 20));
         panel_3.add(lblComensals);
 
-        JSpinner spinner = new JSpinner();
-        panel_3.add(spinner);
+        jsComensals = new JSpinner();
+        jsComensals.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        panel_3.add(jsComensals);
 
     }
 
@@ -103,68 +110,6 @@ public class VistaReservar extends JPanel{
     public JPanel getPanel (){
         return this;
     }
-
-    private JPanel comensals() {
-        JPanel jpComensals = new JPanel();
-
-        jpComensals.setLayout(new GridLayout(1,2));
-
-        jpComensals.add(new JLabel("Comensals: "));
-
-        for(Integer i = 1; i <= MAX_COMENSALS; i++) {
-            jcbComensals.addItem(i.toString());
-        }
-
-        jpComensals.add(jcbComensals);
-
-        return jpComensals;
-    }
-
-    private JPanel hora() {
-        JPanel jpHora = new JPanel();
-
-        jpHora.setLayout(new GridLayout(1,2));
-
-        jpHora.add(new JLabel("Hora: "));
-
-        //ComboBox Horas
-        jcbHores.addItem("13:00");
-        jcbHores.addItem("14:30");
-        jcbHores.addItem("19:30");
-        jcbHores.addItem("21:30");
-
-        jpHora.add(jcbHores);
-
-        return jpHora;
-    }
-
-    private JPanel dia() {
-        JPanel jpDia = new JPanel();
-
-        jpDia.setLayout(new GridLayout(1,6));
-
-        jpDia.add(new JLabel("Dia: "));
-        jpDia.add(jtfDia);
-        jpDia.add(new JLabel("/"));
-        jpDia.add(jtfMes);
-        jpDia.add(new JLabel("/"));
-        jpDia.add(jtfAny);
-
-        return jpDia;
-    }
-
-    protected JPanel usuari() {
-        JPanel jpUsu = new JPanel();
-
-        jpUsu.setLayout(new GridLayout(1,2));
-
-        jpUsu.add(new JLabel("Usuari: "));
-
-        jpUsu.add(jtfUsuari);
-
-        return jpUsu;
-    }
-
 
     public void registraControlador(ActionListener controller) {
 
@@ -241,7 +186,7 @@ public class VistaReservar extends JPanel{
     }
 
     public Integer getComensals(){
-        return Integer.parseInt(jcbComensals.getSelectedItem().toString());
+        return Integer.parseInt(jsComensals.getValue().toString());
     }
 
     public void netejaDades() {
@@ -250,7 +195,7 @@ public class VistaReservar extends JPanel{
         jtfAny.setText("");
         jtfMes.setText("");
         jtfDia.setText("");
-        jcbComensals.setSelectedIndex(0);
+        jsComensals.setValue(0);
         jcbHores.setSelectedIndex(0);
 
     }

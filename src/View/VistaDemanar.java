@@ -12,63 +12,46 @@ public class VistaDemanar extends JPanel{
 
     private static final int MAX_COMENSALS = 15;
     private JTextField jtfUsuari = new JTextField();
-    private JComboBox<String> jcbComensals = new JComboBox<>();
+    private JSpinner jsComensals = new JSpinner();
     private JButton jbDemanar = new JButton();
     private JButton jbHome = new JButton();
+    private JPanel panel = new JPanel();
 
     public VistaDemanar () {
 
-        JPanel jpMain = demanar();       //Creem el JPanel principal
+        this.setLayout(null);
 
-        this.add(jpMain);
+        JLabel label = new JLabel("LS_RESTAURANT");
+        label.setFont(new Font("Tahoma", Font.BOLD, 28));
+        label.setBounds(155, 29, 261, 39);
+        this.add(label);
 
-    }
+        jbDemanar.setText("DEMANAR");
+        jbDemanar.setFont(new Font("Tahoma", Font.BOLD, 20));
+        jbDemanar.setBounds(204, 210, 141, 39);
+        this.add(jbDemanar);
 
-    private JPanel demanar() {
+        panel.setBounds(46, 101, 475, 39);
+        this.add(panel);
 
-        JPanel jpReserva = new JPanel();
+        JLabel label_1 = new JLabel("Usuari:");
+        label_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        panel.add(label_1);
 
-        jpReserva.setLayout(new BoxLayout(jpReserva, BoxLayout.PAGE_AXIS));
+        jtfUsuari.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        jtfUsuari.setColumns(23);
+        panel.add(jtfUsuari);
 
-        JLabel jlTitol = new JLabel("LS RESTAURANT");
+        JPanel panel_3 = new JPanel();
+        panel_3.setBounds(46, 151, 159, 42);
+        this.add(panel_3);
 
-        jpReserva.add(jlTitol);
-        jpReserva.add(usuari());
-        jpReserva.add(comensals());
-        jbDemanar.setText("Demanar");
-        jpReserva.add(jbDemanar);
-        jbHome.setText("Home");
-        jpReserva.add(jbHome);
+        JLabel label_6 = new JLabel("Comensals:");
+        label_6.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        panel_3.add(label_6);
 
-        return jpReserva;
-    }
-
-    private JPanel comensals() {
-        JPanel jpComensals = new JPanel();
-
-        jpComensals.setLayout(new GridLayout(1,2));
-
-        jpComensals.add(new JLabel("Comensals: "));
-
-        for(Integer i = 1; i <= MAX_COMENSALS; i++) {
-            jcbComensals.addItem(i.toString());
-        }
-
-        jpComensals.add(jcbComensals);
-
-        return jpComensals;
-    }
-
-    private JPanel usuari() {
-        JPanel jpUsu = new JPanel();
-
-        jpUsu.setLayout(new GridLayout(1,2));
-
-        jpUsu.add(new JLabel("Usuari: "));
-
-        jpUsu.add(jtfUsuari);
-
-        return jpUsu;
+        jsComensals.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        panel_3.add(jsComensals);
     }
 
 
@@ -128,7 +111,7 @@ public class VistaDemanar extends JPanel{
     }
 
     public Integer getComensals(){
-        return Integer.parseInt(jcbComensals.getSelectedItem().toString());
+        return Integer.parseInt(jsComensals.getValue().toString());
     }
 
 
@@ -147,7 +130,7 @@ public class VistaDemanar extends JPanel{
     public void netejaDades() {
 
         jtfUsuari.setText("");
-        jcbComensals.setSelectedIndex(0);
+        jsComensals.setValue(0);
 
     }
 }

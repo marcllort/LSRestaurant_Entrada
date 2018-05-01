@@ -6,8 +6,8 @@ import java.awt.event.ActionListener;
 
 public class EntradaVista extends JPanel {
 
-    private JButton jbDemanar = new JButton();
-    private JButton jbReserva = new JButton();
+    private JButton jbDemanar;
+    private JButton jbReserva;
     private JPanel panel = new JPanel();
 
     public EntradaVista () {
@@ -16,25 +16,28 @@ public class EntradaVista extends JPanel {
         panel.setLayout(sl_panel);
 
         JPanel panel_1 = new JPanel();
-        sl_panel.putConstraint(SpringLayout.NORTH, panel_1, 63, SpringLayout.NORTH, panel);
-        sl_panel.putConstraint(SpringLayout.WEST, panel_1, 44, SpringLayout.WEST, panel);
-        sl_panel.putConstraint(SpringLayout.SOUTH, panel_1, -35, SpringLayout.SOUTH, panel);
-        sl_panel.putConstraint(SpringLayout.EAST, panel_1, 378, SpringLayout.WEST, panel);
+        sl_panel.putConstraint(SpringLayout.NORTH, panel_1, 106, SpringLayout.NORTH, panel);
+        sl_panel.putConstraint(SpringLayout.WEST, panel_1, 123, SpringLayout.WEST, panel);
+        sl_panel.putConstraint(SpringLayout.SOUTH, panel_1, -83, SpringLayout.SOUTH, panel);
+        sl_panel.putConstraint(SpringLayout.EAST, panel_1, 457, SpringLayout.WEST, panel);
         panel.add(panel_1);
         panel_1.setLayout(null);
 
-        jbDemanar.setText("DEMANAR");
-        jbDemanar.setBounds(0, 0, 162, 103);
+        jbDemanar = new JButton("DEMANAR");
+        jbDemanar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        jbDemanar.setBounds(0, 0, 162, 110);
         panel_1.add(jbDemanar);
 
-        jbReserva.setText("RESERVAR");
-        jbReserva.setBounds(163, 0, 171, 103);
+        jbReserva = new JButton("RESERVAR");
+        jbReserva.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        jbReserva.setBounds(163, 0, 171, 110);
         panel_1.add(jbReserva);
 
         JLabel label = new JLabel("LS_RESTAURANT");
-        sl_panel.putConstraint(SpringLayout.NORTH, label, 22, SpringLayout.NORTH, panel);
-        sl_panel.putConstraint(SpringLayout.WEST, label, 163, SpringLayout.WEST, panel);
-        sl_panel.putConstraint(SpringLayout.SOUTH, label, -19, SpringLayout.NORTH, panel_1);
+        sl_panel.putConstraint(SpringLayout.NORTH, label, 35, SpringLayout.NORTH, panel);
+        sl_panel.putConstraint(SpringLayout.SOUTH, label, -6, SpringLayout.NORTH, panel_1);
+        sl_panel.putConstraint(SpringLayout.EAST, label, -170, SpringLayout.EAST, panel);
+        label.setFont(new Font("Tahoma", Font.BOLD, 28));
         label.setHorizontalAlignment(SwingConstants.CENTER);
         panel.add(label);
 
