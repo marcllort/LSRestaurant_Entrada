@@ -19,6 +19,8 @@ public class VistaDemanar extends JPanel{
 
     public VistaDemanar () {
 
+        //Demanar
+
         this.setLayout(null);
 
         JLabel label = new JLabel("LS RESTAURANT");
