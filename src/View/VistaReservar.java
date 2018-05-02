@@ -24,7 +24,7 @@ public class VistaReservar extends JPanel{
 
         this.setLayout(null);
 
-        JLabel lblLsrestaurant = new JLabel("LS_RESTAURANT");
+        JLabel lblLsrestaurant = new JLabel("LS RESTAURANT");
         lblLsrestaurant.setFont(new Font("Tahoma", Font.BOLD, 28));
         lblLsrestaurant.setBounds(154, 16, 249, 34);
         this.add(lblLsrestaurant);
@@ -87,7 +87,7 @@ public class VistaReservar extends JPanel{
         panel_2.add(jcbHores);
 
         JPanel panel_3 = new JPanel();
-        panel_3.setBounds(38, 188, 165, 41);
+        panel_3.setBounds(38, 188, 186, 41);
         this.add(panel_3);
 
         JLabel lblComensals = new JLabel("Comensals:");
@@ -95,8 +95,15 @@ public class VistaReservar extends JPanel{
         panel_3.add(lblComensals);
 
         jsComensals = new JSpinner();
+        jsComensals.setModel(new SpinnerNumberModel(1,1,20,1));
+        jsComensals.setBounds(123,5,52,32);
         jsComensals.setFont(new Font("Tahoma", Font.PLAIN, 20));
         panel_3.add(jsComensals);
+
+        jbHome.setText("←");
+        jbHome.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        jbHome.setBounds(10,11,55,35);
+        this.add(jbHome);
 
     }
 

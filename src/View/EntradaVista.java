@@ -33,7 +33,7 @@ public class EntradaVista extends JPanel {
         jbReserva.setBounds(163, 0, 171, 110);
         panel_1.add(jbReserva);
 
-        JLabel label = new JLabel("LS_RESTAURANT");
+        JLabel label = new JLabel("LS RESTAURANT");
         sl_panel.putConstraint(SpringLayout.NORTH, label, 35, SpringLayout.NORTH, panel);
         sl_panel.putConstraint(SpringLayout.SOUTH, label, -6, SpringLayout.NORTH, panel_1);
         sl_panel.putConstraint(SpringLayout.EAST, label, -170, SpringLayout.EAST, panel);

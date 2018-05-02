@@ -21,7 +21,7 @@ public class VistaDemanar extends JPanel{
 
         this.setLayout(null);
 
-        JLabel label = new JLabel("LS_RESTAURANT");
+        JLabel label = new JLabel("LS RESTAURANT");
         label.setFont(new Font("Tahoma", Font.BOLD, 28));
         label.setBounds(155, 29, 261, 39);
         this.add(label);
@@ -43,7 +43,7 @@ public class VistaDemanar extends JPanel{
         panel.add(jtfUsuari);
 
         JPanel panel_3 = new JPanel();
-        panel_3.setBounds(46, 151, 159, 42);
+        panel_3.setBounds(46, 151, 175, 42);
         this.add(panel_3);
 
         JLabel label_6 = new JLabel("Comensals:");
@@ -51,7 +51,13 @@ public class VistaDemanar extends JPanel{
         panel_3.add(label_6);
 
         jsComensals.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        jsComensals.setModel(new SpinnerNumberModel(1,1,20,1));
         panel_3.add(jsComensals);
+
+        jbHome.setText("←");
+        jbHome.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        jbHome.setBounds(10,11,55,35);
+        this.add(jbHome);
     }
 
 
