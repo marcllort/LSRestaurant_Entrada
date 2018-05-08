@@ -10,7 +10,7 @@ import java.time.LocalTime;
 
 public class VistaDemanar extends JPanel{
 
-    private static final int MAX_COMENSALS = 15;
+    private static final int MAX_COMENSALS = 20;
     private JTextField jtfUsuari = new JTextField();
     private JSpinner jsComensals = new JSpinner();
     private JButton jbDemanar = new JButton();
@@ -60,6 +60,10 @@ public class VistaDemanar extends JPanel{
         jbHome.setFont(new Font("Tahoma", Font.PLAIN, 20));
         jbHome.setBounds(10,11,55,35);
         this.add(jbHome);
+    }
+
+    public JPanel getPanel (){
+        return this;
     }
 
 

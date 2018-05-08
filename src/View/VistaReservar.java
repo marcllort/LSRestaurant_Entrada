@@ -107,13 +107,6 @@ public class VistaReservar extends JPanel{
 
     }
 
-    private JPanel Reserva() {
-
-
-
-        return panel;
-    }
-
     public JPanel getPanel (){
         return this;
     }

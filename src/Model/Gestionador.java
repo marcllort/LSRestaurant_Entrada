@@ -8,8 +8,19 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Calendar;
 
+/**
+ * Classe que gestiona totes les dates de la reserva
+ */
+
 public class Gestionador {
 
+
+    /**
+     * Comprovador per saber si la data és correcte
+     *
+     * @param input
+     * @return laDataEsCorrecte
+     */
 
     public synchronized boolean isValidDate(String input) {                                          //COPMPROVAR SI LA DATA ES CORRECTA
         String formatString = "yyyy-MM-dd";
@@ -23,6 +34,15 @@ public class Gestionador {
         }
         return true;
     }
+
+    /**
+     * Genera una nova data a partir dels 3 paràmetres
+     *
+     * @param any
+     * @param mes
+     * @param dia
+     * @return data
+     */
 
     public synchronized java.sql.Date newData(Integer dia, Integer mes, Integer any) {
         if (isValidDate(any + "-" + mes + "-" + dia)) {

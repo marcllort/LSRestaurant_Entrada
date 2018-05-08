@@ -9,10 +9,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.ZoneId;
-import java.util.Calendar;
+
+/**
+ * Classe que controla totes les accions de butons i qualsevol Action Listener
+ * Implementa Action Listener per poder escoltar els botons
+ */
 
 public class Controlador implements ActionListener {
 
@@ -20,11 +22,23 @@ public class Controlador implements ActionListener {
     private Gestionador gestionador;
     private ServerConnect sc;
 
+    /**
+     * Constructor amb tots els parametres per crear un nou controlador a partir del nostre panell principal
+     *
+     * @param ps
+     * @param sc
+     */
+
     public Controlador (PanelSelect ps, ServerConnect sc){
         this.ps = ps;
         this.sc = sc;
         this.gestionador = new Gestionador();
     }
+    /**
+     * S'executa quan hi ha un nou event, conté els events de Entrada, Demanar, Reservar
+     *
+     * @param e
+     */
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -111,6 +125,14 @@ public class Controlador implements ActionListener {
         }
     }
 
+    /**
+     * Comprova si les dades dels text fields són correctes, i si no ho són retorna un valor o un altre depenent de l'error
+     *
+     * @param reserva
+     * @return error
+     */
+
+
     private int isValidaDades(Reserva reserva) {
         if (reserva.getUsuari().equals("")){
             return 1;
@@ -132,6 +154,13 @@ public class Controlador implements ActionListener {
         }
         return 0;
     }
+
+    /**
+     * Comprova que el dia sol·licitat sigui major o igual al actual
+     *
+     * @param reserva
+     * @return diaCorrecte
+     */
 
     private boolean diaCorrecte(Reserva reserva) {
 

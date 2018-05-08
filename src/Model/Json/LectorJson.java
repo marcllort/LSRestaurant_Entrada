@@ -5,6 +5,9 @@ import java.io.FileReader;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
+/**
+ * Classe que utilitzem per llegir les dades del JSON
+ */
 
 public class LectorJson {
 
