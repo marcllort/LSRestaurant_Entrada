@@ -13,6 +13,10 @@ public class PanelSelect extends JFrame{
     private CardLayout layout;
     private JPanel cards;
 
+    /**
+     * Constructor que crea el Card Layout que intercanviara les 3 vistes del programa
+     */
+
     public PanelSelect() {
         this.setSize(600, 330);
         this.setTitle("DPO-1718-LSRestaurant-Entrada");
@@ -42,9 +46,19 @@ public class PanelSelect extends JFrame{
 
     }
 
+    /**
+     * Canvia el panell actual a un altre
+     * @param quin
+     */
+
     public void changePanel(String quin){
         layout.show(cards, quin);
     }
+
+    /**
+     * Registra tots els botons amb el controlador per tal que l'ActionListener els detecti
+     * @param controlador
+     */
 
     public void registraControlador(Controlador controlador) {
         entradaVista.registraControlador(controlador);
@@ -52,21 +66,37 @@ public class PanelSelect extends JFrame{
         demanarVista.registraControlador(controlador);
     }
 
+    /**
+     * Getter de la vista d'entrada
+     * @return Vista Entrada
+     */
+
     public EntradaVista getEntradaVista(){
         return entradaVista;
     }
+
+    /**
+     * Getter de la vista reserva
+     * @return Vista Reserva
+     */
 
     public VistaReservar getReservarVista() {
         return reservarVista;
     }
 
+    /**
+     * Getter de la vista demanar
+     * @return Vista Demanar
+     */
+
     public VistaDemanar getDemanarVista() {
         return demanarVista;
     }
 
-    public void optionPaneResposta(String s) {
-
-    }
+    /**
+     * Mostra un missatge (rebut per parametre) a través d'un JOptionPane
+     * @param s
+     */
 
     public void mostraMissatge(String s) {
 
@@ -75,8 +105,12 @@ public class PanelSelect extends JFrame{
         this.setVisible(true);
     }
 
+    /**
+     * Mostra un dels errors (rebut per parametre) a través d'un JOptionPane
+     * @param error
+     */
+
     public void mostraError(int error) {
-        //Mostrem JDialog
         String quinError;
 
 

@@ -19,6 +19,9 @@ public class VistaReservar extends JPanel{
     private JButton jbHome = new JButton();
     private JPanel panel = new JPanel();
 
+    /**
+     * Constructor creador de la vista reservar, que reserva una taula amb la data i hora desitjats
+     */
 
     public VistaReservar () {
 
@@ -107,9 +110,19 @@ public class VistaReservar extends JPanel{
 
     }
 
+    /**
+     * Getter del panell Reservar
+     * @return vistaReservar
+     */
+
     public JPanel getPanel (){
         return this;
     }
+
+    /**
+     * Registra tots els botons amb el controlador per tal que l'ActionListener els detecti
+     * @param controller
+     */
 
     public void registraControlador(ActionListener controller) {
 
@@ -120,9 +133,20 @@ public class VistaReservar extends JPanel{
 
     }
 
+    /**
+     * Getter del contingut del JTextField de l'usuari
+     * @return usuari
+     */
+
     public String getTypedUser (){
         return jtfUsuari.getText();
     }
+
+    /**
+     * Getter del contingut del JTextField de l'any
+     * @return any
+     */
+
 
     public Integer getTypedDateAny (){
 
@@ -140,6 +164,11 @@ public class VistaReservar extends JPanel{
 
     }
 
+    /**
+     * Getter del contingut del JTextField del mes
+     * @return mes
+     */
+
     public Integer getTypedDateMes (){
 
         try {
@@ -155,6 +184,11 @@ public class VistaReservar extends JPanel{
 
     }
 
+    /**
+     * Getter del contingut del JTextField del dia
+     * @return dia
+     */
+
     public Integer getTypedDateDia (){
 
         try {
@@ -168,6 +202,11 @@ public class VistaReservar extends JPanel{
         }
 
     }
+
+    /**
+     * Getter de la hora seleccionada
+     * @return hora
+     */
 
     public Time getHora (){
         String time = jcbHores.getSelectedItem().toString();
@@ -185,9 +224,18 @@ public class VistaReservar extends JPanel{
         return new Time(hora,minuts,segons) ;
     }
 
+    /**
+     * Getter de la quantitat de comensals que hi haura
+     * @return nComensals
+     */
+
     public Integer getComensals(){
         return Integer.parseInt(jsComensals.getValue().toString());
     }
+
+    /**
+     * Reseteja les dades del panell per si es vol fer una nova reserva
+     */
 
     public void netejaDades() {
 

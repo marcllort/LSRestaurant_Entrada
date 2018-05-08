@@ -21,6 +21,9 @@ public class ServerConnect {
     private String resposta;
     private LectorJson lectorJSON;
 
+    /**
+     * Constructor sense paràmetres per crear una nova connexio al server a partir de les dades del JSON
+     */
 
     public ServerConnect() {
 
@@ -40,6 +43,11 @@ public class ServerConnect {
 
     }
 
+    /**
+     * Envia les dades a la reserva
+     * @param reserva
+     */
+
     public void enviaReserva(Reserva reserva) {
         try {
             oos.writeObject(reserva);
@@ -47,6 +55,11 @@ public class ServerConnect {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Rep respostes del servidor
+     * @return resposta
+     */
 
     public String repResposta() {
         try {

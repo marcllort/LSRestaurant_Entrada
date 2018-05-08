@@ -10,6 +10,10 @@ public class EntradaVista extends JPanel {
     private JButton jbReserva;
     private JPanel panel = new JPanel();
 
+    /**
+     * Constructor creador de la vista entrada, que disposa dels 2 botons demanar i reservar
+     */
+
     public EntradaVista () {
 
         SpringLayout sl_panel = new SpringLayout();
@@ -43,9 +47,19 @@ public class EntradaVista extends JPanel {
 
     }
 
+    /**
+     * Getter del panell Entrada
+     * @return vistaEntrada
+     */
+
     public JPanel getPanel(){
         return panel;
     }
+
+    /**
+     * Registra tots els botons amb el controlador per tal que l'ActionListener els detecti
+     * @param controller
+     */
 
     public void registraControlador(ActionListener controller) {         //Registro els botons
         jbReserva.addActionListener(controller);

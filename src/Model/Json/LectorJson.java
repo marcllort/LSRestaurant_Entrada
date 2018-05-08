@@ -12,9 +12,19 @@ import com.google.gson.stream.JsonReader;
 public class LectorJson {
 
     private String FILE_NAME ;
+
+    /**
+     * Constructor del lector del JSON que estableix la ruta
+     */
+
     public LectorJson (){
     FILE_NAME = System.getProperty("user.dir") + "/data/config.json"; //Nom de l'arxiu a obrir
     }
+
+    /**
+     * Llegeix el fitxer i ho passa tot a la classe ConfiguracioClient
+     * @return configuracio del client
+     */
 
     public ConfiguracioClient llegeixConfiguracioClient() {             //Els args son useless
         ConfiguracioClient data ;          // Dades a carregar

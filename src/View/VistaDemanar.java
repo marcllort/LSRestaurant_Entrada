@@ -17,6 +17,10 @@ public class VistaDemanar extends JPanel{
     private JButton jbHome = new JButton();
     private JPanel panel = new JPanel();
 
+    /**
+     * Constructor creador de la vista demanar, que reserva una taula amb la data i hora actuals
+     */
+
     public VistaDemanar () {
 
         //Demanar
@@ -62,10 +66,19 @@ public class VistaDemanar extends JPanel{
         this.add(jbHome);
     }
 
+    /**
+     * Getter del panell Demanar
+     * @return vistaDemanar
+     */
+
     public JPanel getPanel (){
         return this;
     }
 
+    /**
+     * Registra tots els botons amb el controlador per tal que l'ActionListener els detecti
+     * @param controller
+     */
 
     public void registraControlador(ActionListener controller) {
 
@@ -76,9 +89,19 @@ public class VistaDemanar extends JPanel{
 
     }
 
+    /**
+     * Getter del contingut del JTextField de l'usuari
+     * @return usuari
+     */
+
     public String getTypedUser (){
         return jtfUsuari.getText();
     }
+
+    /**
+     * Calcula quina és la hora més pròxima per reservar
+     * @return hora
+     */
 
     public Time nextHour(){
         int hores = LocalTime.now().getHour();
@@ -122,22 +145,45 @@ public class VistaDemanar extends JPanel{
         return hora;
     }
 
+    /**
+     * Getter de la quantitat de comensals
+     * @return nComensals
+     */
+
     public Integer getComensals(){
         return Integer.parseInt(jsComensals.getValue().toString());
     }
 
+    /**
+     * Getter del dia en el que estem
+     * @return dia
+     */
 
     public Integer getTypedDateDia() {
         return LocalDate.now().getDayOfMonth();
     }
 
+    /**
+     * Getter del mes en el que estem
+     * @return mes
+     */
+
     public Integer getTypedDateMes() {
         return LocalDate.now().getMonthValue();
     }
 
+    /**
+     * Getter de l'any en el que estem
+     * @return any
+     */
+
     public Integer getTypedDateAny() {
         return LocalDate.now().getYear();
     }
+
+    /**
+     * Reseteja les dades del panell per si es vol fer una nova reserva
+     */
 
     public void netejaDades() {
 
