@@ -48,7 +48,7 @@ public class PanelSelect extends JFrame{
 
     /**
      * Canvia el panell actual a un altre
-     * @param quin
+     * @param quin  panell al que es canviarà
      */
 
     public void changePanel(String quin){
@@ -57,7 +57,7 @@ public class PanelSelect extends JFrame{
 
     /**
      * Registra tots els botons amb el controlador per tal que l'ActionListener els detecti
-     * @param controlador
+     * @param controlador   controlador que requereix
      */
 
     public void registraControlador(Controlador controlador) {
@@ -95,7 +95,7 @@ public class PanelSelect extends JFrame{
 
     /**
      * Mostra un missatge (rebut per parametre) a través d'un JOptionPane
-     * @param s
+     * @param s missatge a mostrar
      */
 
     public void mostraMissatge(String s) {
@@ -107,7 +107,7 @@ public class PanelSelect extends JFrame{
 
     /**
      * Mostra un dels errors (rebut per parametre) a través d'un JOptionPane
-     * @param error
+     * @param error numero d'error
      */
 
     public void mostraError(int error) {

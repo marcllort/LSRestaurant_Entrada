@@ -45,7 +45,7 @@ public class ServerConnect {
 
     /**
      * Envia les dades a la reserva
-     * @param reserva
+     * @param reserva   classe reserva que registra totes les dades
      */
 
     public void enviaReserva(Reserva reserva) {

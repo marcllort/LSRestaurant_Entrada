@@ -103,7 +103,7 @@ public class VistaReservar extends JPanel{
         jsComensals.setFont(new Font("Tahoma", Font.PLAIN, 20));
         panel_3.add(jsComensals);
 
-        jbHome.setText("←");
+
         jbHome.setFont(new Font("Tahoma", Font.PLAIN, 20));
         jbHome.setBounds(10,11,55,35);
         this.add(jbHome);
@@ -121,7 +121,7 @@ public class VistaReservar extends JPanel{
 
     /**
      * Registra tots els botons amb el controlador per tal que l'ActionListener els detecti
-     * @param controller
+     * @param controller    controlador que requereix
      */
 
     public void registraControlador(ActionListener controller) {
@@ -243,7 +243,7 @@ public class VistaReservar extends JPanel{
         jtfAny.setText("");
         jtfMes.setText("");
         jtfDia.setText("");
-        jsComensals.setValue(0);
+        jsComensals.setValue(1);
         jcbHores.setSelectedIndex(0);
 
     }

@@ -18,10 +18,10 @@ public class Reserva implements Serializable {
     /**
      * Constructor amb tots els parametres per crear una nova reserva amb totes les dades
      *
-     * @param nom
-     * @param nComencals
-     * @param data
-     * @param hora
+     * @param nom   nom de l'usuari
+     * @param nComencals    quantitat de comensals
+     * @param data  data que es vol fer la reserva
+     * @param hora  hora escollida de les possibles
      */
 
     public Reserva(String nom, int nComencals, Date data, Time hora) {

@@ -18,7 +18,7 @@ public class Gestionador {
     /**
      * Comprovador per saber si la data és correcte
      *
-     * @param input
+     * @param input data en format string
      * @return laDataEsCorrecte
      */
 
@@ -38,9 +38,9 @@ public class Gestionador {
     /**
      * Genera una nova data a partir dels 3 paràmetres
      *
-     * @param any
-     * @param mes
-     * @param dia
+     * @param any   numero de l'any
+     * @param mes   numero del mes
+     * @param dia   numero del dia
      * @return data
      */
 

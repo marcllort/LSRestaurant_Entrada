@@ -25,8 +25,8 @@ public class Controlador implements ActionListener {
     /**
      * Constructor amb tots els parametres per crear un nou controlador a partir del nostre panell principal
      *
-     * @param ps
-     * @param sc
+     * @param ps    JPanel del panel select
+     * @param sc    connector server
      */
 
     public Controlador (PanelSelect ps, ServerConnect sc){
@@ -37,7 +37,7 @@ public class Controlador implements ActionListener {
     /**
      * S'executa quan hi ha un nou event, conté els events de Entrada, Demanar, Reservar
      *
-     * @param e
+     * @param e    event
      */
 
     @Override
@@ -128,7 +128,7 @@ public class Controlador implements ActionListener {
     /**
      * Comprova si les dades dels text fields són correctes, i si no ho són retorna un valor o un altre depenent de l'error
      *
-     * @param reserva
+     * @param reserva   classe reserva que registra totes les dades
      * @return error
      */
 
@@ -158,7 +158,7 @@ public class Controlador implements ActionListener {
     /**
      * Comprova que el dia sol·licitat sigui major o igual al actual
      *
-     * @param reserva
+     * @param reserva   classe reserva que registra totes les dades
      * @return diaCorrecte
      */
 

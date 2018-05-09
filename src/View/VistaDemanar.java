@@ -60,7 +60,7 @@ public class VistaDemanar extends JPanel{
         jsComensals.setModel(new SpinnerNumberModel(1,1,20,1));
         panel_3.add(jsComensals);
 
-        jbHome.setText("←");
+
         jbHome.setFont(new Font("Tahoma", Font.PLAIN, 20));
         jbHome.setBounds(10,11,55,35);
         this.add(jbHome);
@@ -77,7 +77,7 @@ public class VistaDemanar extends JPanel{
 
     /**
      * Registra tots els botons amb el controlador per tal que l'ActionListener els detecti
-     * @param controller
+     * @param controller    controlador que requereix
      */
 
     public void registraControlador(ActionListener controller) {
@@ -188,7 +188,7 @@ public class VistaDemanar extends JPanel{
     public void netejaDades() {
 
         jtfUsuari.setText("");
-        jsComensals.setValue(0);
+        jsComensals.setValue(1);
 
     }
 }

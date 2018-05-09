@@ -58,7 +58,7 @@ public class EntradaVista extends JPanel {
 
     /**
      * Registra tots els botons amb el controlador per tal que l'ActionListener els detecti
-     * @param controller
+     * @param controller    controlador que es requereix
      */
 
     public void registraControlador(ActionListener controller) {         //Registro els botons
