@@ -25,38 +25,39 @@ public class Controlador implements ActionListener {
     /**
      * Constructor amb tots els parametres per crear un nou controlador a partir del nostre panell principal
      *
-     * @param ps    JPanel del panel select
-     * @param sc    connector server
+     * @param ps JPanel del panel select
+     * @param sc connector server
      */
 
-    public Controlador (PanelSelect ps, ServerConnect sc){
+    public Controlador(PanelSelect ps, ServerConnect sc) {
         this.ps = ps;
         this.sc = sc;
         this.gestionador = new Gestionador();
     }
+
     /**
      * S'executa quan hi ha un nou event, conté els events de Entrada, Demanar, Reservar
      *
-     * @param e    event
+     * @param e event
      */
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getActionCommand().equals("Home")){
+        if (e.getActionCommand().equals("Home")) {
             ps.changePanel("ENTRADA");
         }
 
-        if (e.getActionCommand().equals("DEMANAR")){
+        if (e.getActionCommand().equals("DEMANAR")) {
             System.out.println("Demanar");
             ps.changePanel("DEMANAR");
         }
 
-        if (e.getActionCommand().equals("RESERVAR")){
+        if (e.getActionCommand().equals("RESERVAR")) {
             System.out.println("Reservar");
             ps.changePanel("RESERVAR");
         }
 
-        if (e.getActionCommand().equals("NovaReserva")){
+        if (e.getActionCommand().equals("NovaReserva")) {
             System.out.println("Nova Reserva Sol·licitada");
 
             //Reserva de prova, enviar la real entrada per l'usuari
@@ -73,7 +74,7 @@ public class Controlador implements ActionListener {
 
             int error = isValidaDades(reserva);
 
-            if(error == 0){
+            if (error == 0) {
                 ps.getReservarVista().netejaDades();
 
                 //Enviar quan toquin el boto
@@ -83,14 +84,14 @@ public class Controlador implements ActionListener {
                 ps.mostraMissatge(sc.repResposta());
 
                 ps.changePanel("ENTRADA");
-            }else{
+            } else {
                 //Missatge d'error
                 ps.mostraError(error);
             }
 
         }
 
-        if (e.getActionCommand().equals("NovaDemanda")){
+        if (e.getActionCommand().equals("NovaDemanda")) {
             System.out.println("Nova Demanda Sol·licitada");
 
             //Reserva de prova, enviar la real entrada per l'usuari
@@ -107,7 +108,7 @@ public class Controlador implements ActionListener {
 
             int error = isValidaDades(reserva);
 
-            if(error == 0){
+            if (error == 0) {
                 ps.getDemanarVista().netejaDades();
 
                 //Enviar quan toquin el boto
@@ -117,7 +118,7 @@ public class Controlador implements ActionListener {
                 ps.mostraMissatge(sc.repResposta());
 
                 ps.changePanel("ENTRADA");
-            }else{
+            } else {
                 //Missatge d'error
                 ps.mostraError(error);
             }
@@ -128,25 +129,25 @@ public class Controlador implements ActionListener {
     /**
      * Comprova si les dades dels text fields són correctes, i si no ho són retorna un valor o un altre depenent de l'error
      *
-     * @param reserva   classe reserva que registra totes les dades
+     * @param reserva classe reserva que registra totes les dades
      * @return error
      */
 
 
     private int isValidaDades(Reserva reserva) {
-        if (reserva.getUsuari().equals("")){
+        if (reserva.getUsuari().equals("")) {
             return 1;
-        }else{
-            if(reserva.getData() == null){
+        } else {
+            if (reserva.getData() == null) {
                 return 2;
-            }else{
-                if (reserva.getHora().getHours() == 1){
+            } else {
+                if (reserva.getHora().getHours() == 1) {
                     return 3;
                 }
-                if (LocalTime.now().getHour() > reserva.getHora().getHours() && diaCorrecte(reserva)){
+                if (LocalTime.now().getHour() > reserva.getHora().getHours() && diaCorrecte(reserva)) {
                     return 3;
                 }
-                if (LocalTime.now().getHour() == reserva.getHora().getHours() && LocalTime.now().getMinute() > reserva.getHora().getMinutes()){
+                if (LocalTime.now().getHour() == reserva.getHora().getHours() && LocalTime.now().getMinute() > reserva.getHora().getMinutes()) {
                     return 3;
                 }
 
@@ -158,7 +159,7 @@ public class Controlador implements ActionListener {
     /**
      * Comprova que el dia sol·licitat sigui major o igual al actual
      *
-     * @param reserva   classe reserva que registra totes les dades
+     * @param reserva classe reserva que registra totes les dades
      * @return diaCorrecte
      */
 
@@ -170,9 +171,9 @@ public class Controlador implements ActionListener {
         localDate.setMonth(LocalDate.now().getMonthValue());
         localDate.setDate(LocalDate.now().getDayOfMonth());
 
-        if(localDate.compareTo(reserva.getData()) > 0){
+        if (localDate.compareTo(reserva.getData()) > 0) {
             return false;
-        }else{
+        } else {
             return true;
         }
     }

@@ -6,6 +6,7 @@ import View.PanelSelect;
 public class Main {
 
     public static void main(String[] args) {
+
         PanelSelect ps = new PanelSelect();
 
         ServerConnect serverConnect = new ServerConnect(ps);
@@ -13,7 +14,7 @@ public class Main {
         Controlador controlador = new Controlador(ps, serverConnect);
 
         ps.registraControlador(controlador);
-        
+
         ps.setVisible(true);
 
     }

@@ -14,7 +14,7 @@ import java.net.Socket;
 
 public class ServerConnect {
 
-    public static int portEntrada;
+    private static int portEntrada;
     private static String ipEntrada = "localhost";
     private ObjectOutputStream oos;
     private ObjectInputStream ois;
@@ -42,13 +42,15 @@ public class ServerConnect {
             this.vista = vista;
         } catch (IOException e) {
             vista.mostraMissatge("No s'ha pogut connectar amb el servidor!");
-            System.exit(0);        }
+            System.exit(0);
+        }
 
     }
 
     /**
      * Envia les dades a la reserva
-     * @param reserva   classe reserva que registra totes les dades
+     *
+     * @param reserva classe reserva que registra totes les dades
      */
 
     public void enviaReserva(Reserva reserva) {
@@ -56,11 +58,13 @@ public class ServerConnect {
             oos.writeObject(reserva);
         } catch (IOException e) {
             vista.mostraMissatge("El servidor s'ha desconectat!");
-            System.exit(0);        }
+            System.exit(0);
+        }
     }
 
     /**
      * Rep respostes del servidor
+     *
      * @return resposta
      */
 
