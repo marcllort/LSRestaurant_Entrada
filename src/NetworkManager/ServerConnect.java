@@ -3,6 +3,7 @@ package NetworkManager;
 import Model.Json.ConfiguracioClient;
 import Model.Json.LectorJson;
 import Model.Reserva;
+import View.PanelSelect;
 
 import java.io.DataInputStream;
 import java.io.IOException;
@@ -20,12 +21,13 @@ public class ServerConnect {
     private DataInputStream dis;
     private String resposta;
     private LectorJson lectorJSON;
+    private PanelSelect vista;
 
     /**
      * Constructor sense paràmetres per crear una nova connexio al server a partir de les dades del JSON
      */
 
-    public ServerConnect() {
+    public ServerConnect(PanelSelect vista) {
 
         try {
             lectorJSON = new LectorJson();
@@ -37,9 +39,10 @@ public class ServerConnect {
             oos = new ObjectOutputStream(socket.getOutputStream());
             ois = new ObjectInputStream(socket.getInputStream());
             dis = new DataInputStream(socket.getInputStream());
+            this.vista = vista;
         } catch (IOException e) {
-            e.printStackTrace();
-        }
+            vista.mostraMissatge("No s'ha pogut connectar amb el servidor!");
+            System.exit(0);        }
 
     }
 
@@ -52,8 +55,8 @@ public class ServerConnect {
         try {
             oos.writeObject(reserva);
         } catch (IOException e) {
-            e.printStackTrace();
-        }
+            vista.mostraMissatge("El servidor s'ha desconectat!");
+            System.exit(0);        }
     }
 
     /**
