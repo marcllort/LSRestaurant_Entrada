@@ -13,6 +13,7 @@ public class ConfiguracioClient {
 
     /**
      * Getter Port del server
+     *
      * @return port
      */
 
@@ -22,6 +23,7 @@ public class ConfiguracioClient {
 
     /**
      * Getter IP del server
+     *
      * @return ip
      */
 
